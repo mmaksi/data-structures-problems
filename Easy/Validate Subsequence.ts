@@ -5,7 +5,7 @@
  *
  * O(n) Time | O(1) Space
  */
-function isSubsequentArray(array, subsequence) {
+function isSubsequentArray(array: number[], subsequence: number[]): boolean {
   let pointer = 0;
   array.forEach((num) => {
     if (pointer === subsequence.length) {

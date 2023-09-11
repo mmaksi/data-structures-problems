@@ -3,7 +3,7 @@
  * Solution 1: define x and calculate y = target - x
  * look for y in the hashtable
  */
-function twoNumberSum(array, target) {
+function twoNumberSum(array: number[], target: number): never[] | number[] {
   // Create a hashtable
   const obj = {};
   // Traverse the array and find each number's complementary in the hashtable
@@ -31,7 +31,7 @@ function twoNumberSum(array, target) {
  * move the pointers according to sum and the target
  */
 
-function twoNumberSum2(array, target) {
+function twoNumberSum2(array: number[], target: number): never[] | number[] {
   // Sort the array
   array.sort((a, b) => a - b);
   // Set pointers

@@ -6,9 +6,9 @@
  * push the squared value of the highest number to the new array starting from the tail
  */
 
-function sortAndSquare(array) {
+function sortAndSquare(array: number[]) {
   const n = array.length;
-  const squaredArray = new Array(n);
+  const squaredArray = new Array(n) as number[];
   let head = 0;
   let tail = n - 1;
   let index = n - 1;

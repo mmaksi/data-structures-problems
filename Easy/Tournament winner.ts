@@ -1,6 +1,8 @@
-function compWinner(competitions, results) {
-  const scores = {};
-  let bestTeam = '';
+type Team = "HTML" | "C#" | "Python";
+
+function compWinner(competitions: Team[][], results: number[]) {
+  const scores: Record<Team, number> = {} as Record<Team, number>;
+  let bestTeam = "";
   // Loop over each competition array
   for (let i = 0; i < competitions.length; i++) {
     // See who wins and increase his score
@@ -18,10 +20,10 @@ function compWinner(competitions, results) {
 
 const res = compWinner(
   [
-    ['HTML', 'C#'],
-    ['C#', 'Python'],
-    ['Python', 'HTML'],
+    ["HTML", "C#"],
+    ["C#", "Python"],
+    ["Python", "HTML"],
   ],
-  [0, 0, 1]
+  [0, 0, 1],
 );
 console.log(res);
