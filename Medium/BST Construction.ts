@@ -10,7 +10,7 @@ class BSTNode {
   constructor(public value: number) {}
 }
 
-class BinarySearchTree {
+export class BinarySearchTree {
   private root: BSTNode | null = null;
 
   constructor() {}
@@ -33,30 +33,32 @@ class BinarySearchTree {
     }
   }
 
-  insert(value: number): void {
-    // Create a new node
-    const newNode = new BSTNode(value);
-    // Check if there is no parent node
-    if (!this.root) {
-      this.root = newNode;
-    } else {
-      let currentNode: BSTNode | null = this.root;
-      while (currentNode) {
-        if (value < currentNode.value) {
-          if (currentNode.left === null) {
-            currentNode.left = newNode;
-            break;
+  insert(values: number[]): void {
+    values.forEach((value) => {
+      // Create a new node
+      const newNode = new BSTNode(value);
+      // Check if there is no parent node
+      if (!this.root) {
+        this.root = newNode;
+      } else {
+        let currentNode: BSTNode | null = this.root;
+        while (currentNode) {
+          if (value < currentNode.value) {
+            if (currentNode.left === null) {
+              currentNode.left = newNode;
+              break;
+            }
+            currentNode = currentNode.left;
+          } else if (value >= currentNode.value) {
+            if (currentNode.right === null) {
+              currentNode.right = newNode;
+              break;
+            }
+            currentNode = currentNode.right;
           }
-          currentNode = currentNode.left;
-        } else if (value >= currentNode.value) {
-          if (currentNode.right === null) {
-            currentNode.right = newNode;
-            break;
-          }
-          currentNode = currentNode.right;
         }
       }
-    }
+    });
   }
 
   getRoot() {
@@ -65,14 +67,5 @@ class BinarySearchTree {
 }
 
 const bst = new BinarySearchTree();
-bst.insert(10);
-bst.insert(15);
-bst.insert(5);
-bst.insert(22);
-bst.insert(13);
-bst.insert(5);
-bst.insert(2);
-bst.insert(14);
-bst.insert(1);
+bst.insert([10, 15, 5, 22, 13, 5, 2, 14, 1]);
 const exists = bst.searchFor(3);
-console.log(exists);
